@@ -197,6 +197,16 @@ export const slides: SlideData[] = [
           title: "Strategic Lead Management",
           description: "Implementing MQL Foundation and Lead Scoring. Readiness: Building transition pathways bridging marketing engagement to direct sales action.",
           icon: "route"
+        },
+        {
+          title: "Content AI Engine",
+          description: "Building AI-powered content system to increase output of case studies and blog posts segmented by business type. Performance tracking identifies what resonates with each persona, enabling scaled, targeted content creation.",
+          icon: "edit"
+        },
+        {
+          title: "Commerce Cloud",
+          description: "Partnering to build Salesforce Commerce Cloud foundation and attribution infrastructure. Establishing frameworks to connect marketing engagement to commerce sales, creating measurable marketing revenue impact.",
+          icon: "shopping-cart"
         }
       ]
     }

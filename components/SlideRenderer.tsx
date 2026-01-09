@@ -32,7 +32,9 @@ import {
   Box,
   Map as MapIcon,
   Award,
-  BarChart
+  BarChart,
+  Edit,
+  ShoppingCart
 } from 'lucide-react';
 
 interface Props {
@@ -53,6 +55,8 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
       case 'database': return <Database size={32} />;
       case 'filter': return <Filter size={32} />;
       case 'zap': return <Zap size={32} />;
+      case 'edit': return <Edit size={32} />;
+      case 'shopping-cart': return <ShoppingCart size={32} />;
       default: return <Target size={32} />;
     }
   };
@@ -271,7 +275,7 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
       case 'strategy':
         return (
           <div className="h-full w-full bg-slxAliceBlue flex flex-col p-10 md:p-14 overflow-hidden relative">
-            <div className="relative z-10 mb-10 flex items-center justify-between">
+            <div className="relative z-10 mb-8 flex items-center justify-between">
               <div>
                 <div className="flex items-center space-x-4 mb-2">
                   <div className="w-12 h-1 bg-slxBlue"></div>
@@ -281,19 +285,39 @@ const SlideRenderer: React.FC<Props> = ({ slide }) => {
               </div>
               <Sparkles className="text-slxBlue/30 animate-pulse" size={40} />
             </div>
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 min-h-0">
-              {content.pillars.map((pillar: any, i: number) => (
-                  <div key={i} className="group relative flex flex-col bg-white border border-slxWhiteSmoke rounded-xl p-8 overflow-hidden transition-all duration-500 hover:border-slxBlue hover:shadow-2xl">
+            
+            <div className="flex-1 flex flex-col gap-6 relative z-10 min-h-0">
+              {/* Row 1: 3 Columns */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {content.pillars.slice(0, 3).map((pillar: any, i: number) => (
+                  <div key={i} className="group relative flex flex-col bg-white border border-slxWhiteSmoke rounded-xl p-6 lg:p-8 overflow-hidden transition-all duration-500 hover:border-slxBlue hover:shadow-2xl">
                     <div className="relative z-10 flex flex-col h-full">
-                      <div className="flex justify-between items-start mb-8">
-                        <div className="p-4 rounded-lg bg-slxAliceBlue text-slxBlue group-hover:bg-slxBlue group-hover:text-white transition-all duration-500">{getIcon(pillar.icon)}</div>
-                        <span className="text-4xl font-black text-slxWhiteSmoke tracking-tighter">0{i+1}</span>
+                      <div className="flex justify-between items-start mb-6">
+                        <div className="p-3 rounded-lg bg-slxAliceBlue text-slxBlue group-hover:bg-slxBlue group-hover:text-white transition-all duration-500">{getIcon(pillar.icon)}</div>
+                        <span className="text-3xl font-black text-slxWhiteSmoke tracking-tighter">0{i+1}</span>
                       </div>
-                      <h3 className="text-xl font-bold leading-tight text-slxMidnight group-hover:text-slxBlue transition-colors mb-6 uppercase tracking-tight">{pillar.title}</h3>
-                      <p className="body-slx text-base font-normal text-slxDarkGray opacity-80">{pillar.description}</p>
+                      <h3 className="text-lg font-bold leading-tight text-slxMidnight group-hover:text-slxBlue transition-colors mb-4 uppercase tracking-tight">{pillar.title}</h3>
+                      <p className="text-sm font-normal text-slxDarkGray opacity-80 leading-relaxed">{pillar.description}</p>
                     </div>
                   </div>
-              ))}
+                ))}
+              </div>
+
+              {/* Row 2: 2 Centered Columns */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full">
+                {content.pillars.slice(3, 5).map((pillar: any, i: number) => (
+                  <div key={i+3} className="group relative flex flex-col bg-white border border-slxWhiteSmoke rounded-xl p-6 lg:p-8 overflow-hidden transition-all duration-500 hover:border-slxBlue hover:shadow-2xl">
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex justify-between items-start mb-6">
+                        <div className="p-3 rounded-lg bg-slxAliceBlue text-slxBlue group-hover:bg-slxBlue group-hover:text-white transition-all duration-500">{getIcon(pillar.icon)}</div>
+                        <span className="text-3xl font-black text-slxWhiteSmoke tracking-tighter">0{i+4}</span>
+                      </div>
+                      <h3 className="text-lg font-bold leading-tight text-slxMidnight group-hover:text-slxBlue transition-colors mb-4 uppercase tracking-tight">{pillar.title}</h3>
+                      <p className="text-sm font-normal text-slxDarkGray opacity-80 leading-relaxed">{pillar.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         );
