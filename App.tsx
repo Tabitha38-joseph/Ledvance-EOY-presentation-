@@ -62,22 +62,19 @@ const App: React.FC = () => {
         {/* Navigation Controls */}
         <div className="absolute bottom-6 right-8 flex items-center space-x-4 z-20">
           <div className="bg-white/90 backdrop-blur px-5 py-3 rounded-full shadow-2xl border border-gray-200 flex items-center space-x-4 hover:shadow-ledvance/20 transition-shadow">
-            <span className="text-xs font-black text-darkgrey uppercase tracking-widest min-w-[100px] text-center">
-              Slide {currentSlide + 1} / {slides.length}
-            </span>
-            <div className="h-4 w-[1px] bg-gray-300"></div>
             <button 
               onClick={prevSlide}
               disabled={currentSlide === 0}
-              className={`p-1.5 rounded-full transition-all ${currentSlide === 0 ? 'text-gray-300' : 'hover:bg-ledvance hover:text-white active:scale-90 text-darkgrey'}`}
+              className={`p-1.5 rounded-full transition-all ${currentSlide === 0 ? 'text-gray-300' : 'hover:bg-slxBlue hover:text-white active:scale-90 text-slxDarkGray'}`}
               title="Previous Slide"
             >
               <ChevronLeft size={24} />
             </button>
+            <div className="h-4 w-[1px] bg-gray-300"></div>
             <button 
               onClick={nextSlide}
               disabled={currentSlide === slides.length - 1}
-              className={`p-1.5 rounded-full transition-all ${currentSlide === slides.length - 1 ? 'text-gray-300' : 'hover:bg-ledvance hover:text-white active:scale-90 text-darkgrey'}`}
+              className={`p-1.5 rounded-full transition-all ${currentSlide === slides.length - 1 ? 'text-gray-300' : 'hover:bg-slxBlue hover:text-white active:scale-90 text-slxDarkGray'}`}
               title="Next Slide"
             >
               <ChevronRight size={24} />

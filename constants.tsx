@@ -189,7 +189,7 @@ export const slides: SlideData[] = [
           icon: "zap"
         },
         {
-          title: "Hyper-Personalization at Scale",
+          title: "Hyper-Personalization",
           description: "Tailored content for key personas (Distributors, Contractors, Engineers) enabled by our 2025 Business and Role Type field implementation.",
           icon: "users"
         },
